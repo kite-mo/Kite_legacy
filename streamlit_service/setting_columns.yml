@@ -1,0 +1,38 @@
+key_column_list:
+- LOTID
+- Module
+- waferNumber
+- stage
+meta_column_list:
+- time
+- Recipe
+- LOTID
+- Module
+- waferNumber
+- stage
+sensor_column_list:
+- Gas1_Monitor
+- Gas2_Monitor
+- Gas3_Monitor
+- Gas4_Monitor
+- Gas5_Monitor
+- Gas6_Monitor
+- Gas1_Pressure
+- Gas2_Pressure
+- Gas3_Pressure
+- Gas4_Pressure
+- Gas5_Pressure
+- Gas6_Pressure
+- APC_Pressure
+- APC_Position
+- Wall_Temp_Monitor
+- SourcePwr_Reflect
+- Mat_VC1_Position
+- Mat_VC2_Position
+- Mat_Phase
+- Mat_Vrms
+- Mat_Irms
+- EPD_Monitor
+- SourcePwr_Read
+- Temp
+- Pin_Displacement
