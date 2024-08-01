@@ -1,0 +1,1 @@
+# Interpretable and Accurate Convolutional Neural Networks for Human Activity Recognition

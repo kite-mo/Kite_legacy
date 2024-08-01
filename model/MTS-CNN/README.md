@@ -1,0 +1,1 @@
+# Multiple time‐series convolutional neural network for fault detection and diagnosis and empirical study in semiconductor manufacturing
