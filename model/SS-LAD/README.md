@@ -1,0 +1,1 @@
+# Semi Supervised Layer Anomaly Detection Model of Multivariate Time Series in Manufacturing
