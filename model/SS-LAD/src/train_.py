@@ -225,7 +225,7 @@ def deep_sad_loss(X, y, model_, final_center, eta, eps, type=None):
     elif type == 'ae':
         # squeezed_x, latent_x, unpooling_idx, layer_output = model_(X)
         total_outputs = model_(X)
-        latent_x, layer_output = total_outputs[2], total_outputs[-1]
+        latent_x, layer_output = total_outputs[1], total_outputs[-1]
         layer_outputs = copy.copy(layer_output)
         layer_outputs.append(latent_x)
     else:

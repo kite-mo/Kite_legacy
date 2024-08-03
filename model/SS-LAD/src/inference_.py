@@ -14,8 +14,7 @@ def get_hypersphere_center(model, pre_train_loader, device, type='vae'):
     model.eval()
     with torch.no_grad():
         for num, data in enumerate(tqdm(pre_train_loader)):
-
-            data, labels, torr, cycle = data
+            data, labels = data
 
             data = data.float().to(device)
             labels = labels.type(torch.LongTensor).to(device)
@@ -33,16 +32,13 @@ def get_hypersphere_center(model, pre_train_loader, device, type='vae'):
             layer3_z_list.append(layer_output[2].cpu().numpy())
             layer4_z_list.append(layer_output[3].cpu().numpy())
 
-        if type == 'vae':
-            layer_z_list = [
+        layer_z_list = [
                 layer1_z_list,
                 layer2_z_list,
                 layer3_z_list,
                 layer4_z_list,
                 latent_z_list,
             ]
-        elif type == 'ae':
-            layer_z_list = [latent_z_list]
 
         centers = [
             np.squeeze(np.mean(np.mean(np.array(layer_z), axis=0), axis=0))

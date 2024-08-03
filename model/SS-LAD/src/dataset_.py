@@ -43,3 +43,34 @@ class dataset_base_ae(Dataset):
 
     def __len__(self):
         return len(self.wafer_unit)
+    
+
+class dataset_ae(Dataset):
+    def __init__(self, dataset, max_len, feature_list):
+
+        super(dataset_ae, self).__init__()
+        self.dataset = dataset
+        self.max_len = max_len
+        self.feature_list = feature_list
+
+    def __getitem__(self, idx):
+
+        ori_dataset = self.dataset[idx]
+        y = float(ori_dataset.label.unique()[0])
+
+        selected_dataset = ori_dataset.loc[:, self.feature_list].reset_index(drop=True)
+        mean, std = selected_dataset.mean(axis=0).values, selected_dataset.std(axis = 0).values
+        scaled_dataset = (selected_dataset - mean) / std
+
+        # padding length
+        if len(scaled_dataset) < self.max_len:
+            new_index = list(range(self.max_len))
+            scaled_dataset = scaled_dataset.reindex(new_index).ffill()
+
+        X = np.array(scaled_dataset).T
+
+        return X, y
+
+    def __len__(self):
+        return len(self.dataset)
+
