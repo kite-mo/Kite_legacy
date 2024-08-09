@@ -1,1 +1,1 @@
-# Kite_hisotry
+# Model 구현 샘플 코드 레포
